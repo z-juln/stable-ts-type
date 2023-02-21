@@ -4,9 +4,7 @@
 
 ## TODO
 
-1. 支持基础模板的校准
-2. 支持将基础模板内带的注释补进最终生成的代码（可能要改quicktype源码）
-3. 随机params或body(mock.js)
+- 支持将基础模板内带的注释补进最终生成的代码（可能要改动quicktype源码）
 
 ## install
 
@@ -103,5 +101,120 @@ const generator = new Generator(inputs, {
 });
 
 generator.generate();
+
+```
+
+output:
+
+```typescript
+export interface Response {
+  test?:              boolean | string;
+  formData?:          FormData;
+  objects?:           Object[];
+  total?:             number;
+  time?:              string;
+  pagination?:        Pagination;
+  url?:               string;
+  user?:              null;
+  auditLogEnabled?:   boolean;
+  userEmailVerified?: null;
+  csrftoken?:         string;
+  notifications?:     any[];
+  npmExpansions?:     string[];
+}
+
+export interface FormData {
+  search?: Search;
+}
+
+export interface Search {
+  q?:       PerPage;
+  page?:    Page;
+  perPage?: PerPage;
+}
+
+export interface Page {
+  value?: number;
+}
+
+export interface PerPage {
+  value?: string;
+}
+
+export interface Object {
+  package?:     Package;
+  score?:       Score;
+  searchScore?: number;
+  flags?:       Flags;
+}
+
+export interface Flags {
+  unstable?: boolean;
+}
+
+export interface Package {
+  name?:              string;
+  scope?:             string;
+  version?:           string;
+  description?:       string;
+  keywords?:          string[];
+  date?:              DateClass;
+  links?:             Links;
+  author?:            Author;
+  publisher?:         Publisher;
+  maintainers?:       Maintainer[];
+  keywordsTruncated?: boolean;
+}
+
+export interface Author {
+  name?:     string;
+  email?:    string;
+  url?:      string;
+  username?: string;
+}
+
+export interface DateClass {
+  ts?:  number;
+  rel?: string;
+}
+
+export interface Links {
+  npm?:        string;
+  homepage?:   string;
+  repository?: string;
+  bugs?:       string;
+}
+
+export interface Maintainer {
+  username?: string;
+  email?:    string;
+}
+
+export interface Publisher {
+  name?:    string;
+  avatars?: Avatars;
+}
+
+export interface Avatars {
+  small?:  string;
+  medium?: string;
+  large?:  string;
+}
+
+export interface Score {
+  final?:  number;
+  detail?: Detail;
+}
+
+export interface Detail {
+  quality?:     number;
+  popularity?:  number;
+  maintenance?: number;
+}
+
+export interface Pagination {
+  perPage?: number;
+  page?:    number;
+}
 
 ```
