@@ -11,7 +11,7 @@ import { Input, ExampleJSONInput, RequestInput, getOnceMockInputList } from './i
 
 const TOP_TYPE_NAME = 'Response'; // quicktype@21.0.13的ts转换直接定死了大驼峰，没法改风格
 
-interface GenerateOpts {
+export interface GenerateOpts {
   topTypeName?: string;
   quickTypeOpts?: TypeOpts;
   requestInterval?: number;
