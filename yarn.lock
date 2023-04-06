@@ -7,10 +7,10 @@
   resolved "http://hnpm.hupu.io/@glideapps%2fts-necessities/-/ts-necessities-2.1.2.tgz"
   integrity sha512-tLjfhinr6doUBcWi7BWnkT2zT6G5UhiZftsiIH6xVvykeXE+FU7Wr0MyqwmqideWlDD5rG+VjVLptLviGo04CA==
 
-"@juln/curl-to-json@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.npmjs.org/@juln/curl-to-json/-/curl-to-json-1.0.5.tgz#546315589fd2c44dcb5df18178990066fe008c9f"
-  integrity sha512-PWqq8QYD1yeukJ04TxFoCGkEKq7lLTjsuv08/enJkd0j/qNnvuQZOaZi7y5b22QP1mydpvxTTfKZaaXrrzn1cA==
+"@juln/curl-to-json@^1.0.6":
+  version "1.0.6"
+  resolved "http://hnpm.hupu.io/@juln%2fcurl-to-json/-/curl-to-json-1.0.6.tgz#89482c32e49f93ff8070811bc0c48700b62b25fd"
+  integrity sha512-2GRM3yKuTgLWo/zzfMOAEPXHmYz4/m/SCznYtAh1Ys80DqI+6EtmqMZc/wmea63kjfRNrz89gjqTDiYV439wDg==
   dependencies:
     mocha "^10.0.0"
     yargs "^17.5.1"
