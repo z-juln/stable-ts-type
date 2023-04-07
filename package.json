@@ -1,6 +1,6 @@
 {
   "name": "stable-ts-type",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Obtain the most stable type code of 'typescript' through multiple network requests",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",

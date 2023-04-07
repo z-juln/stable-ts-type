@@ -10,7 +10,7 @@
 
 `npm i stable-ts-type`
 
-## use
+## use1: Generator
 
 ```typescript
 import fs from 'fs';
@@ -131,90 +131,28 @@ export interface Search {
   q?:       PerPage;
   page?:    Page;
   perPage?: PerPage;
-}
+// ...
+// ...
 
-export interface Page {
-  value?: number;
-}
+```
 
-export interface PerPage {
-  value?: string;
-}
+## use2: simpleGenerate
 
-export interface Object {
-  package?:     Package;
-  score?:       Score;
-  searchScore?: number;
-  flags?:       Flags;
-}
+```typescript
+import { simpleGenerate } from 'stable-ts-type';
+import type { Input } from 'stable-ts-type';
 
-export interface Flags {
-  unstable?: boolean;
-}
+const inputs: Input[] = [{
+  type: 'example-json',
+  value: `
+    {
+      test: /** xxx */ 'hhh', // hhh
+    }
+  `,
+}];
 
-export interface Package {
-  name?:              string;
-  scope?:             string;
-  version?:           string;
-  description?:       string;
-  keywords?:          string[];
-  date?:              DateClass;
-  links?:             Links;
-  author?:            Author;
-  publisher?:         Publisher;
-  maintainers?:       Maintainer[];
-  keywordsTruncated?: boolean;
-}
-
-export interface Author {
-  name?:     string;
-  email?:    string;
-  url?:      string;
-  username?: string;
-}
-
-export interface DateClass {
-  ts?:  number;
-  rel?: string;
-}
-
-export interface Links {
-  npm?:        string;
-  homepage?:   string;
-  repository?: string;
-  bugs?:       string;
-}
-
-export interface Maintainer {
-  username?: string;
-  email?:    string;
-}
-
-export interface Publisher {
-  name?:    string;
-  avatars?: Avatars;
-}
-
-export interface Avatars {
-  small?:  string;
-  medium?: string;
-  large?:  string;
-}
-
-export interface Score {
-  final?:  number;
-  detail?: Detail;
-}
-
-export interface Detail {
-  quality?:     number;
-  popularity?:  number;
-  maintenance?: number;
-}
-
-export interface Pagination {
-  perPage?: number;
-  page?:    number;
-}
+simpleGenerate(inputs, { requestInterval: 500 })
+  .then(code => console.log(code))
+  .catch(error => console.log(error));
 
 ```

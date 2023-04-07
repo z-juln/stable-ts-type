@@ -148,6 +148,25 @@ export class Generator {
   }
 }
 
+export const simpleGenerate = async (input: Input | Input[], opts: Omit<GenerateOpts, 'on'> = {}) =>
+  new Promise<string>((resolve, reject) => {
+    const inputs = Array.isArray(input) ? input : [input];
+    const generator = new Generator(inputs, {
+      ...opts,
+      on: (event, codeOrError) => {
+        switch (event) {
+          case 'DONE':
+            resolve(codeOrError as string);
+            break;
+          case 'ERROR':
+            reject(codeOrError);
+            break;
+        }
+      },
+    });
+    generator.generate();
+  });
+
 /** @deprecated */
 export const generate = async (input: Input | Input[], opts: GenerateOpts = {}): Promise<string> => {
   const inputs = Array.isArray(input) ? input : [input];
